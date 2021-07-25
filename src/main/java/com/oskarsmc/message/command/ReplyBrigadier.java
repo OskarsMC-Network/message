@@ -76,6 +76,7 @@ public class ReplyBrigadier {
             playerConversations.remove(event.recipient());
 
             playerConversations.put(event.recipient(), sender);
+
         }
     }
 
