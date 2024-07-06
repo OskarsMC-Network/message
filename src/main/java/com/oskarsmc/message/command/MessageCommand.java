@@ -13,6 +13,7 @@ import com.oskarsmc.message.util.DefaultPermission;
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
+import net.kyori.adventure.text.Component;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -36,12 +37,15 @@ public final class MessageCommand {
                 .permission(new DefaultPermission("osmc.message.send"))
                 .handler(context -> {
                     Player receiver = context.get("player");
-
-                    proxyServer.getEventManager().fire(new MessageEvent(
-                            context.getSender(),
-                            receiver,
-                            context.get("message")
-                    )).thenAccept(messageHandler::handleMessageEvent);
+                    if (!messageHandler.canBeMessaged.getOrDefault(receiver, true) && !context.getSender().hasPermission("osmc.message.bypass")) {
+                        context.getSender().sendMessage(Component.translatable("oskarsmc.messages.disabled"));
+                    } else {
+                        proxyServer.getEventManager().fire(new MessageEvent(
+                                context.getSender(),
+                                receiver,
+                                context.get("message")
+                        )).thenAccept(messageHandler::handleMessageEvent);
+                    }
                 })
         );
     }

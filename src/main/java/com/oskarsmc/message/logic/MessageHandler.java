@@ -28,6 +28,7 @@ public final class MessageHandler {
     private final MessageSettings messageSettings;
     private final MiniMessage miniMessage = MiniMessage.miniMessage();
     private final ConcurrentHashMap<Player, Player> conversations = new ConcurrentHashMap<>();
+    public final ConcurrentHashMap<CommandSource, Boolean> canBeMessaged = new ConcurrentHashMap<>();
     /**
      * Conversation Watchers
      */

@@ -8,6 +8,7 @@ import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.TypeLiteral;
 import com.oskarsmc.message.command.MessageCommand;
+import com.oskarsmc.message.command.MessageToggleCommand;
 import com.oskarsmc.message.command.ReplyCommand;
 import com.oskarsmc.message.command.SocialSpyCommand;
 import com.oskarsmc.message.configuration.MessageSettings;
@@ -91,6 +92,7 @@ public final class Message {
 
             // Commands
             injector.getInstance(MessageCommand.class);
+            injector.getInstance(MessageToggleCommand.class);
             injector.getInstance(SocialSpyCommand.class);
             injector.getInstance(ReplyCommand.class);
 
