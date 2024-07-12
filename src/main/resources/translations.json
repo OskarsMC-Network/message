@@ -22,7 +22,7 @@
         "oskarsmc.message.command.socialspy.on": "SocialSpy habilitado.",
         "oskarsmc.message.command.socialspy.off": "SocialSpy deshabilitado.",
         "oskarsmc.message.command.msgtoggle.on": "Mensajes habilitado.",
-        "oskarsmc.message.command.msgtoggle.off": "Messages deshabilitado.",
+        "oskarsmc.message.command.msgtoggle.off": "Mensajes deshabilitado.",
         "oskarsmc.message.command.common.self-sending-error": "No puedes enviarte mensajes a ti mismo.",
         "oskarsmc.messages.disabled": "Ese jugador tiene los mensajes deshabilitados."
       }
