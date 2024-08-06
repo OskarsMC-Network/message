@@ -8,7 +8,10 @@
         "oskarsmc.message.command.common.argument.message-description": "The message to send to the player.",
         "oskarsmc.message.command.socialspy.on": "SocialSpy enabled.",
         "oskarsmc.message.command.socialspy.off": "SocialSpy disabled.",
-        "oskarsmc.message.command.common.self-sending-error": "You cannot send messages to yourself."
+        "oskarsmc.message.command.msgtoggle.on": "Messages enabled.",
+        "oskarsmc.message.command.msgtoggle.off": "Messages disabled.",
+        "oskarsmc.message.command.common.self-sending-error": "You cannot send messages to yourself.",
+        "oskarsmc.messages.disabled": "That player has messages disabled."
       }
     },
     {
@@ -18,7 +21,10 @@
         "oskarsmc.message.command.common.argument.message-description": "El mensaje que se enviara al jugador.",
         "oskarsmc.message.command.socialspy.on": "SocialSpy habilitado.",
         "oskarsmc.message.command.socialspy.off": "SocialSpy deshabilitado.",
-        "oskarsmc.message.command.common.self-sending-error": "No puedes enviarte mensajes a ti mismo."
+        "oskarsmc.message.command.msgtoggle.on": "Mensajes habilitado.",
+        "oskarsmc.message.command.msgtoggle.off": "Mensajes deshabilitado.",
+        "oskarsmc.message.command.common.self-sending-error": "No puedes enviarte mensajes a ti mismo.",
+        "oskarsmc.messages.disabled": "Ese jugador tiene los mensajes deshabilitados."
       }
     }
   ]
