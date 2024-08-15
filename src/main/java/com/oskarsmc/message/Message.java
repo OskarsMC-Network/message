@@ -8,9 +8,11 @@ import com.google.inject.Injector;
 import com.google.inject.Key;
 import com.google.inject.TypeLiteral;
 import com.oskarsmc.message.command.MessageCommand;
+import com.oskarsmc.message.command.MessageToggleCommand;
 import com.oskarsmc.message.command.ReplyCommand;
 import com.oskarsmc.message.command.SocialSpyCommand;
 import com.oskarsmc.message.configuration.MessageSettings;
+import com.oskarsmc.message.configuration.UserData;
 import com.oskarsmc.message.locale.CommandExceptionHandler;
 import com.oskarsmc.message.locale.TranslationManager;
 import com.oskarsmc.message.logic.MessageMetrics;
@@ -50,6 +52,7 @@ public final class Message {
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
         MessageSettings messageSettings = new MessageSettings(dataFolder, logger);
+        UserData userData = new UserData(dataFolder, logger);
 
         injector = injector.createChildInjector(
                 new CloudInjectionModule<>(
@@ -81,7 +84,9 @@ public final class Message {
                     messageSettings.miniPlaceholdersIntegration(false);
                 }
             }
-
+            if (messageSettings.isLoggingEnabled()){
+                com.oskarsmc.message.util.Logger.setLogContext(dataFolder, logger);
+            }
             // Register custom exception handlers
             injector.getInstance(CommandExceptionHandler.class);
 
@@ -91,6 +96,7 @@ public final class Message {
 
             // Commands
             injector.getInstance(MessageCommand.class);
+            injector.getInstance(MessageToggleCommand.class);
             injector.getInstance(SocialSpyCommand.class);
             injector.getInstance(ReplyCommand.class);
 

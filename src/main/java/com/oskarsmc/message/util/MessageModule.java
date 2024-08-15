@@ -4,6 +4,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.oskarsmc.message.command.MessageCommand;
+import com.oskarsmc.message.command.MessageToggleCommand;
 import com.oskarsmc.message.command.ReplyCommand;
 import com.oskarsmc.message.command.SocialSpyCommand;
 import com.oskarsmc.message.configuration.MessageSettings;
@@ -31,6 +32,7 @@ public final class MessageModule extends AbstractModule {
     protected void configure() {
         bind(MessageSettings.class).toInstance(messageSettings);
         bind(MessageCommand.class).in(Singleton.class);
+        bind(MessageToggleCommand.class).in(Singleton.class);
         bind(ReplyCommand.class).in(Singleton.class);
         bind(SocialSpyCommand.class).in(Singleton.class);
         bind(MessageMetrics.class).in(Singleton.class);

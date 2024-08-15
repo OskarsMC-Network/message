@@ -19,6 +19,7 @@ dependencies {
     implementation("com.velocitypowered:velocity-api:3.1.2-SNAPSHOT")
     implementation("cloud.commandframework:cloud-velocity:1.8.2")
     implementation("cloud.commandframework:cloud-minecraft-extras:1.8.2")
+    implementation("org.apache.logging.log4j:log4j-core:2.23.1")
     compileOnly("net.luckperms:api:5.4")
     compileOnly("io.github.miniplaceholders:miniplaceholders-api:2.0.0")
 }
@@ -40,7 +41,7 @@ fun runCommand(command: String): String {
 val release = System.getenv("GRADLE_RELEASE").equals("true", ignoreCase = true)
 val gitHash = runCommand("git rev-parse --short HEAD")
 group = "com.oskarsmc"
-version = "1.4.0"
+version = "1.5.0"
 
 if (!release) {
     version = "$version-$gitHash-SNAPSHOT"

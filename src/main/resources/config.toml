@@ -4,6 +4,7 @@ enabled = true
 luckperms-integration = true # If luckperms is found, use luckperms prefixes and suffixes.
 miniplaceholders-integration = true # If miniplaceholders is present, you can use the MiniPlaceholders placeholders in the messages.
 allow-self-message-sending = true # Allow a player to send messages to themselves.
+enable-logging = true # Enable message logging to file and console.
 
 # Customise messages using MiniMessage
 # Documentation: https://docs.adventure.kyori.net/minimessage.html#format or https://webui.adventure.kyori.net/
@@ -14,7 +15,7 @@ allow-self-message-sending = true # Allow a player to send messages to themselve
 message-sent = "<white>[<color:#FFCE45>YOU</color> → <color:#D4AC2B><receiver_prefix><receiver><receiver_suffix></color>] <message></white>"
 message-received = "<white>[<color:#FFCE45><sender_prefix><sender><sender_suffix></color> → <color:#D4AC2B>YOU</color>] <message></white>"
 message-socialspy = "<gradient:aqua:blue>[SocialSpy] </gradient>[<white><sender> → <receiver>]: <message>"
-
+message-log-format = "<sender> → <receiver>: <message>"
 
 # Customise error handling - leave blank to disable
 # Documentation: https://docs.adventure.kyori.net/minimessage.html#format or https://webui.adventure.kyori.net/
@@ -28,7 +29,8 @@ message-socialspy = "<gradient:aqua:blue>[SocialSpy] </gradient>[<white><sender>
 message = ["msg", "tell"]
 reply = ["r"]
 socialspy = ["ss"]
+toggle = ["msgtoggle"]
 
 # Please don't touch this
 [developer-info]
-config-version = 1.2
+config-version = 1.3
