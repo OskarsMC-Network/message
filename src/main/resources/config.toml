@@ -29,6 +29,7 @@ message-log-format = "<sender> → <receiver>: <message>"
 message = ["msg", "tell"]
 reply = ["r"]
 socialspy = ["ss"]
+toggle = ["msgtoggle"]
 
 # Please don't touch this
 [developer-info]

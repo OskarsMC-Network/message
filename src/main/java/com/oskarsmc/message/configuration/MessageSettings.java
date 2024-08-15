@@ -36,6 +36,7 @@ public final class MessageSettings {
     private List<String> messageAlias;
     private List<String> replyAlias;
     private List<String> socialSpyAlias;
+    private List<String> msgToggleAlias;
 
     private boolean luckpermsIntegration;
     private boolean miniPlaceholdersIntegration;
@@ -87,6 +88,7 @@ public final class MessageSettings {
         this.messageAlias = toml.getList("aliases.message");
         this.replyAlias = toml.getList("aliases.reply");
         this.socialSpyAlias = toml.getList("aliases.socialspy");
+        this.msgToggleAlias = toml.getList("aliases.toggle");
 
         // Exceptions
         this.customErrorHandlers = new HashMap<>();
@@ -288,6 +290,16 @@ public final class MessageSettings {
     @Pure
     public List<String> socialSpyAliases() {
         return socialSpyAlias;
+    }
+
+    /**
+     * Get the aliases of the msgtoggle command.
+     *
+     * @return The aliases of the msgtoggle command.
+     */
+    @Pure
+    public List<String> msgToggleAliases() {
+        return msgToggleAlias;
     }
 
     /**

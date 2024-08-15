@@ -3,6 +3,7 @@ package com.oskarsmc.message.command;
 import cloud.commandframework.Command;
 import cloud.commandframework.velocity.VelocityCommandManager;
 import com.google.inject.Inject;
+import com.oskarsmc.message.configuration.MessageSettings;
 import com.oskarsmc.message.configuration.UserData;
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.proxy.Player;
@@ -19,12 +20,13 @@ public final class MessageToggleCommand {
     /**
      * Construct the message toggle command.
      *
+     * @param messageSettings Message Settings
      * @param commandManager Command Manager
      * @param userData User Data
      */
     @Inject
-    public MessageToggleCommand(@NotNull VelocityCommandManager<CommandSource> commandManager, UserData userData) {
-        Command.Builder<CommandSource> builder = commandManager.commandBuilder("msgtoggle").permission("osmc.message.toggle");
+    public MessageToggleCommand(@NotNull MessageSettings messageSettings, @NotNull VelocityCommandManager<CommandSource> commandManager, UserData userData) {
+        Command.Builder<CommandSource> builder = commandManager.commandBuilder("msgtoggle",messageSettings.msgToggleAliases().toArray(new String[0])).permission("osmc.message.toggle");
 
         commandManager.command(builder
                 .senderType(Player.class)
