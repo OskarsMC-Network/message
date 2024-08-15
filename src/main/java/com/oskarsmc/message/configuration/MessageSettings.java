@@ -29,6 +29,7 @@ public final class MessageSettings {
     private String messageSentMiniMessage;
     private String messageReceivedMiniMessage;
     private String messageSocialSpyMiniMessage;
+    private String messageLogFormat;
 
     private HashMap<Class<? extends Exception>, String> customErrorHandlers;
 
@@ -39,6 +40,7 @@ public final class MessageSettings {
     private boolean luckpermsIntegration;
     private boolean miniPlaceholdersIntegration;
     private boolean selfMessageSending;
+    private boolean loggingEnabled;
 
     private final double configVersion;
     private boolean enabled;
@@ -74,12 +76,13 @@ public final class MessageSettings {
         this.luckpermsIntegration = toml.getBoolean("plugin.luckperms-integration");
         this.selfMessageSending = toml.getBoolean("plugin.allow-self-message-sending");
         this.miniPlaceholdersIntegration = toml.getBoolean("plugin.miniplaceholders-integration");
+        this.loggingEnabled = toml.getBoolean("plugin.enable-logging");
 
         // Messages - Message
         this.messageSentMiniMessage = toml.getString("messages.message-sent");
         this.messageReceivedMiniMessage = toml.getString("messages.message-received");
         this.messageSocialSpyMiniMessage = toml.getString("messages.message-socialspy");
-
+        this.messageLogFormat = toml.getString("messages.message-log-format");
         // Aliases
         this.messageAlias = toml.getList("aliases.message");
         this.replyAlias = toml.getList("aliases.reply");
@@ -228,6 +231,16 @@ public final class MessageSettings {
     }
 
     /**
+     * Get if the config enables the logging of messages.
+     *
+     * @return If the config enables the logging of messages.
+     */
+    @Pure
+    public boolean isLoggingEnabled() {
+        return loggingEnabled;
+    }
+
+    /**
      * Get the configuration version.
      *
      * @return The configuration version.
@@ -245,6 +258,16 @@ public final class MessageSettings {
     @Pure
     public String messageSocialSpyMiniMessage() {
         return messageSocialSpyMiniMessage;
+    }
+
+    /**
+     * Get the MiniMessage markup of the log entry.
+     *
+     * @return The MiniMessage markup of the log entry.
+     */
+    @Pure
+    public String messageLogFormat() {
+        return messageLogFormat;
     }
 
     /**

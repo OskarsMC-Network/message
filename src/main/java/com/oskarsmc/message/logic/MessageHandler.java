@@ -2,6 +2,7 @@ package com.oskarsmc.message.logic;
 
 import com.oskarsmc.message.configuration.MessageSettings;
 import com.oskarsmc.message.event.MessageEvent;
+import com.oskarsmc.message.util.Logger;
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.proxy.Player;
 import io.github.miniplaceholders.api.MiniPlaceholders;
@@ -113,6 +114,10 @@ public final class MessageHandler {
         Component socialSpyComponent = miniMessage.deserialize(messageSettings.messageSocialSpyMiniMessage(), placeholders);
         for (CommandSource watcher : conversationWatchers) {
             watcher.sendMessage(socialSpyComponent);
+        }
+
+        if (messageSettings.isLoggingEnabled()){
+            Logger.addLog(miniMessage.deserialize(messageSettings.messageLogFormat(), placeholders));
         }
     }
 

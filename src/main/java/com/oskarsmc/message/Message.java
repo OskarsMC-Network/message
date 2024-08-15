@@ -84,7 +84,9 @@ public final class Message {
                     messageSettings.miniPlaceholdersIntegration(false);
                 }
             }
-
+            if (messageSettings.isLoggingEnabled()){
+                com.oskarsmc.message.util.Logger.setLogContext(dataFolder, logger);
+            }
             // Register custom exception handlers
             injector.getInstance(CommandExceptionHandler.class);
 

@@ -11,7 +11,7 @@ public final class VersionUtils {
     /**
      * The latest config version.
      */
-    public static final double CONFIG_VERSION = 1.2;
+    public static final double CONFIG_VERSION = 1.3;
 
     /**
      * Check if the Message Settings object is up-to-date.
